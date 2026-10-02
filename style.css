@@ -1,0 +1,1114 @@
+ /* =====================================================
+   BASIC RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,0.5),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(70,55,35,0.1),
+            transparent 35%
+        ),
+
+        #e8dfca;
+
+    color: #29372d;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   PAPER TEXTURE
+===================================================== */
+
+.paper-texture {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    opacity: 0.22;
+
+    background-image:
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(80,60,40,0.05)
+            0px,
+
+            rgba(80,60,40,0.05)
+            1px,
+
+            transparent
+            1px,
+
+            transparent
+            4px
+        );
+}
+
+
+/* =====================================================
+   FAINT MAP BACKGROUND
+===================================================== */
+
+.map-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.08;
+
+    background-image:
+
+        linear-gradient(
+            25deg,
+            transparent 48%,
+            #52604d 49%,
+            transparent 50%
+        ),
+
+        linear-gradient(
+            115deg,
+            transparent 48%,
+            #52604d 49%,
+            transparent 50%
+        );
+
+    background-size: 220px 220px;
+
+    z-index: 0;
+}
+
+
+/* =====================================================
+   VINTAGE STAMPS
+===================================================== */
+
+.vintage-stamp {
+
+    position: fixed;
+
+    z-index: 2;
+
+    border: 2px solid #66705e;
+
+    padding: 8px;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 9px;
+
+    text-align: center;
+
+    color: #66705e;
+
+    opacity: 0.5;
+
+}
+
+
+.stamp-left {
+
+    top: 25px;
+
+    left: 18px;
+
+    transform: rotate(-12deg);
+
+}
+
+
+.stamp-right {
+
+    right: 18px;
+
+    bottom: 25px;
+
+    transform: rotate(10deg);
+
+}
+
+
+/* =====================================================
+   GENERAL PAGE
+===================================================== */
+
+.page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
+.archive-label {
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #65705d;
+}
+
+
+h1 {
+
+    font-weight: 500;
+
+}
+
+
+.intro-text {
+
+    font-size: 21px;
+
+    color: #655d4d;
+
+    margin: 10px 0;
+}
+
+
+.ornament {
+
+    font-family:
+        "Parisienne",
+        cursive;
+
+    font-size: 32px;
+
+    color: #947c50;
+
+    margin: 12px;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+#day3 h1 {
+
+    font-size:
+        clamp(65px, 18vw, 125px);
+
+    letter-spacing: 8px;
+
+    color: #29372d;
+
+    text-shadow:
+        2px 2px rgba(120,90,50,0.12);
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+
+    margin-top: 25px;
+
+    padding: 12px 25px;
+
+    background: transparent;
+
+    border: 1px solid #596553;
+
+    color: #29372d;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+button:hover {
+
+    background: #29372d;
+
+    color: #eee5d1;
+
+}
+[10/2/2026 8:51 PM] ..e: /* =====================================================
+   ARCHIVE
+===================================================== */
+
+#archive {
+
+    position: relative;
+
+    z-index: 3;
+
+    min-height: 100vh;
+
+    padding: 80px 20px;
+}
+
+
+.archive-container {
+
+    width: 100%;
+
+    max-width: 760px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+.archive-container h2 {
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    margin: 10px 0;
+}
+
+
+.archive-description {
+
+    font-style: italic;
+
+    color: #716957;
+
+    margin-bottom: 45px;
+}
+
+
+/* =====================================================
+   CASE FILE
+===================================================== */
+
+.case-file {
+
+    position: relative;
+
+    background:
+        rgba(244,237,219,0.78);
+
+    border:
+        1px solid
+        rgba(80,65,45,0.25);
+
+    padding: 35px 25px;
+
+    margin: 35px auto;
+
+    max-width: 620px;
+
+    box-shadow:
+        5px 8px 18px
+        rgba(50,40,25,0.12);
+
+    transition: 0.3s;
+}
+
+
+.case-file:hover {
+
+    transform:
+        translateY(-4px)
+        rotate(-0.3deg);
+
+}
+
+
+.case-file::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 95px;
+
+    height: 17px;
+
+    background:
+        rgba(183,166,130,0.35);
+
+    top: -8px;
+
+    left: 42%;
+
+    transform: rotate(-2deg);
+}
+
+
+.file-number {
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #756b58;
+}
+
+
+.case-letter {
+
+    font-family:
+        "Parisienne",
+        cursive;
+
+    font-size: 55px;
+
+    color: #596653;
+
+    margin: 8px;
+}
+
+
+.case-file h3 {
+
+    font-size: 27px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+.case-file p:not(.file-number):not(.case-letter) {
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    color: #625947;
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    background:
+        rgba(30,35,28,0.78);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+.memory-paper {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 650px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 45px 25px;
+
+    background: #eee4ce;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,0.35);
+}
+
+
+.memory-paper h2 {
+
+    font-size: 38px;
+
+    font-weight: 500;
+
+    margin-top: 10px;
+}
+
+
+.close-button {
+
+    position: absolute;
+
+    top: 5px;
+
+    right: 10px;
+
+    border: none;
+
+    font-size: 28px;
+
+    margin: 0;
+}
+
+
+#memoryContent {
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: #554d40;
+}
+
+
+.photo-placeholder {
+
+    width: 85%;
+
+    max-width: 430px;
+
+    height: 230px;
+
+    margin: 25px auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background: #d8ceb8;
+
+    border: 7px solid #c8baa0;
+
+    box-shadow:
+        3px 6px 12px
+        rgba(0,0,0,0.15);
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #716957;
+
+}
+
+
+/* =====================================================
+   ARSU
+===================================================== */
+
+#arsuReveal {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+.reveal-paper {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    padding: 60px 25px;
+
+    background:
+        rgba(242,232,210,0.82);
+
+    border:
+        1px solid
+        rgba(80,65,45,0.3);
+
+    text-align: center;
+
+    box-shadow:
+        8px 12px 30px
+        rgba(50,40,25,0.15);
+}
+
+
+.reveal-paper h2 {
+
+    font-size: 30px;
+
+    font-weight: 500;
+}
+
+
+.letters {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 35px 0;
+}
+
+
+.letters span {
+
+    width: 65px;
+
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #eee4ce;
+[10/2/2026 8:51 PM] ..e: border:
+        1px solid
+        #a28e69;
+
+    font-family:
+        "Parisienne",
+        cursive;
+
+    font-size: 48px;
+
+    box-shadow:
+        2px 4px 8px
+        rgba(0,0,0,0.12);
+}
+
+
+.arsu {
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 52px;
+
+    letter-spacing: 9px;
+
+    color: #596653;
+
+    margin: 20px;
+}
+
+
+.mystery-text {
+
+    font-style: italic;
+
+    color: #756b5b;
+}
+
+
+/* =====================================================
+   PASSPORT
+===================================================== */
+
+#passportSection {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 50px 20px;
+
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+}
+
+
+.passport {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    box-shadow:
+        10px 15px 30px
+        rgba(40,30,20,0.3);
+}
+
+
+/* COVER */
+
+.passport-cover {
+
+    min-height: 360px;
+
+    background: #293b2d;
+
+    border: 8px solid #203024;
+
+    border-radius: 5px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #d8c49a;
+
+    box-shadow:
+        inset 0 0 40px
+        rgba(0,0,0,0.3);
+}
+
+
+.passport-emblem {
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+}
+
+
+.passport-cover p {
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    letter-spacing: 4px;
+
+    font-size: 12px;
+}
+
+
+.passport-cover h1 {
+
+    font-size: 75px;
+
+    letter-spacing: 10px;
+
+    margin: 20px;
+}
+
+
+.passport-line {
+
+    width: 180px;
+
+    height: 1px;
+
+    background: #bda36c;
+}
+
+
+.passport-cover small {
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    margin-top: 15px;
+}
+
+
+/* INSIDE */
+
+.passport-page {
+
+    position: relative;
+
+    min-height: 470px;
+
+    padding: 30px;
+
+    background: #eee4ce;
+
+    border:
+        1px solid
+        #c4b693;
+}
+
+
+.passport-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 8px;
+
+    color: #766c59;
+}
+
+
+.passport-page h2 {
+
+    text-align: center;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+    margin: 40px 0 30px;
+}
+
+
+.passport-info div {
+
+    padding: 12px 0;
+
+    border-bottom:
+        1px solid
+        rgba(90,75,50,0.2);
+
+    text-align: left;
+
+    font-size: 20px;
+}
+
+
+.passport-info small {
+
+    display: block;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #81755f;
+
+    margin-bottom: 3px;
+}
+
+
+.passport-stamp {
+
+    position: absolute;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 100px;
+
+    height: 100px;
+
+    border:
+        2px solid
+        #66735d;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 8px;
+
+    color: #66735d;
+
+    transform: rotate(-12deg);
+
+    opacity: 0.7;
+}
+
+
+.passport-message {
+
+    font-size: 20px;
+
+    margin-top: 25px;
+}
+
+
+.passport-small {
+
+    font-size: 15px;
+
+    font-style: italic;
+
+    color: #746a59;
+}
+
+
+/* =====================================================
+   END OF DAY 3
+===================================================== */
+
+#day3End {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+}
+
+
+.ending-paper {
+
+    max-width: 650px;
+
+    padding: 60px 25px;
+}
+
+
+.ending-paper h2 {
+
+    font-size: 32px;
+
+    font-weight: 500;
+
+    margin: 15px 0;
+}
+
+
+.ending-paper > p {
+
+    font-size: 21px;
+
+    margin: 12px;
+}
+
+
+.day-complete {
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 11px !important;
+
+    letter-spacing: 3px;
+
+    color: #596653;
+}
+
+
+.return-text {
+
+    font-style: italic;
+
+    color: #756b5b;
+[10/2/2026 8:51 PM] ..e: font-size: 17px !important;
+}
+
+
+/* =====================================================
+   HIDDEN
+===================================================== */
+
+.hidden {
+
+    display: none !important;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .vintage-stamp {
+
+        font-size: 7px;
+
+        padding: 5px;
+    }
+
+
+    .archive-container h2 {
+
+        font-size: 32px;
+    }
+
+
+    .case-file {
+
+        padding: 28px 18px;
+    }
+
+
+    .case-file h3 {
+
+        font-size: 23px;
+    }
+
+
+    .letters {
+
+        gap: 6px;
+    }
+
+
+    .letters span {
+
+        width: 54px;
+
+        height: 70px;
+
+        font-size: 40px;
+    }
+
+
+    .arsu {
+
+        font-size: 38px;
+
+        letter-spacing: 6px;
+    }
+
+
+    .passport-cover {
+
+        min-height: 320px;
+    }
+
+
+    .passport-page {
+
+        min-height: 450px;
+
+        padding: 23px;
+    }
+
+
+    .passport-stamp {
+
+        width: 75px;
+
+        height: 75px;
+
+        font-size: 6px;
+    }
+
+}
