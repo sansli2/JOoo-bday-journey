@@ -1,0 +1,514 @@
+[10/2/2026 8:45 PM] ..e: <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Jo's Journey</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Vintage fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Special+Elite&family=Parisienne&display=swap"
+          rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     DECORATIVE VINTAGE BACKGROUND
+===================================================== -->
+
+<div class="paper-texture"></div>
+
+<div class="map-background"></div>
+
+<div class="vintage-stamp stamp-left">
+    PERSONAL<br>
+    ARCHIVE
+</div>
+
+<div class="vintage-stamp stamp-right">
+    TRAVEL<br>
+    RECORD
+</div>
+
+
+<!-- =====================================================
+     DAY 3
+     THE DISCOVERY
+===================================================== -->
+
+<section id="day3" class="day active">
+
+    <div class="page">
+
+        <p class="archive-label">
+            PERSONAL ARCHIVE
+        </p>
+
+        <h1>
+            THE JOURNEY<br>
+            OF JO
+        </h1>
+
+        <div class="ornament">
+            ❦
+        </div>
+
+        <p class="intro-text">
+            Four memories are waiting to be found.
+        </p>
+
+        <button onclick="startDay3()">
+            OPEN THE ARCHIVE
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DAY 3 — ARCHIVE FILES
+===================================================== -->
+
+<section id="archive" class="hidden">
+
+    <div class="archive-container">
+
+        <p class="archive-label">
+            DAY III — THE DISCOVERY
+        </p>
+
+        <h2>
+            RECOVER THE FOUR PIECES
+        </h2>
+
+        <p class="archive-description">
+            Somewhere inside these memories,
+            something has been hidden.
+        </p>
+
+
+        <!-- A -->
+
+        <div class="case-file">
+
+            <p class="file-number">
+                FILE 001
+            </p>
+
+            <p class="case-letter">
+                A
+            </p>
+
+            <h3>
+                THE ORIGIN STORY
+            </h3>
+
+            <p>
+                Every friendship has a beginning.
+                This one has several.
+            </p>
+
+            <button onclick="openMemory('A')">
+                OPEN FILE
+            </button>
+
+        </div>
+
+
+        <!-- R -->
+
+        <div class="case-file">
+
+            <p class="file-number">
+                FILE 002
+            </p>
+
+            <p class="case-letter">
+                R
+            </p>
+
+            <h3>
+                THE RAINY SAMBUSA FILE
+            </h3>
+
+            <p>
+                A mission for quoqor biscuit.
+                An unexpected snack.
+                One rainy night.
+            </p>
+
+            <button onclick="openMemory('R')">
+                OPEN FILE
+            </button>
+
+        </div>
+
+
+        <!-- S -->
+
+        <div class="case-file">
+
+            <p class="file-number">
+                FILE 003
+            </p>
+
+            <p class="case-letter">
+                S
+            </p>
+
+            <h3>
+                THE MYSTERY OF JO
+            </h3>
+
+            <p>
+                Almost eight Arsemas.
+                One nickname.
+                One mystery.
+            </p>
+
+            <button onclick="openMemory('S')">
+                OPEN FILE
+            </button>
+
+        </div>
+
+
+        <!-- U -->
+
+        <div class="case-file">
+
+            <p class="file-number">
+                FILE 004
+            </p>
+
+            <p class="case-letter">
+                U
+            </p>
+
+            <h3>
+                HER WORLD
+            </h3>
+
+            <p>
+                The little things that make
+                her unmistakably Jo.
+            </p>
+
+            <button onclick="openMemory('U')">
+                OPEN FILE
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+[10/2/2026 8:45 PM] ..e: <!-- =====================================================
+     MEMORY POPUP
+===================================================== -->
+
+<div id="memoryModal" class="modal hidden">
+
+    <div class="memory-paper">
+
+        <button class="close-button"
+                onclick="closeMemory()">
+            ×
+        </button>
+
+        <p id="memoryFile"
+           class="archive-label">
+        </p>
+
+        <h2 id="memoryTitle"></h2>
+
+        <div class="ornament">
+            ❦
+        </div>
+
+        <div id="memoryContent"></div>
+
+
+        <!-- PHOTO PLACEHOLDER -->
+
+        <div id="photoPlaceholder"
+             class="photo-placeholder">
+
+            YOUR PHOTO<br>
+            WILL GO HERE
+
+        </div>
+
+
+        <button onclick="solveMemory()">
+            PIECE RECOVERED
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ARSU REVEAL
+===================================================== -->
+
+<section id="arsuReveal"
+         class="hidden">
+
+    <div class="reveal-paper">
+
+        <p class="archive-label">
+            ARCHIVE COMPLETE
+        </p>
+
+        <h2>
+            FOUR PIECES RECOVERED
+        </h2>
+
+
+        <div class="letters">
+
+            <span>A</span>
+            <span>R</span>
+            <span>S</span>
+            <span>U</span>
+
+        </div>
+
+
+        <div class="ornament">
+            ❦
+        </div>
+
+
+        <p>
+            Four memories.
+        </p>
+
+        <p>
+            Four letters.
+        </p>
+
+        <p>
+            One place.
+        </p>
+
+
+        <h1 class="arsu">
+            ARSU
+        </h1>
+
+
+        <p class="mystery-text">
+            But what is ARSU?
+        </p>
+
+
+        <button onclick="openPassport()">
+            CONTINUE
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PASSPORT
+===================================================== -->
+
+<section id="passportSection"
+         class="hidden">
+
+    <div class="passport">
+
+        <!-- COVER -->
+
+        <div class="passport-cover">
+
+            <div class="passport-emblem">
+                ❦
+            </div>
+
+            <p>
+                TRAVEL DOCUMENT
+            </p>
+
+            <h1>
+                JO
+            </h1>
+
+            <div class="passport-line"></div>
+
+            <small>
+                PERSONAL ARCHIVE
+            </small>
+
+        </div>
+
+
+        <!-- INSIDE PAGE -->
+
+        <div class="passport-page">
+
+            <div class="passport-header">
+
+                <span>
+                    PERSONAL ARCHIVE
+                </span>
+
+                <span>
+                    003
+                </span>
+
+            </div>
+
+
+            <h2>
+                TRAVELER'S RECORD
+            </h2>
+
+
+            <div class="passport-info">
+
+                <div>
+                    <small>TRAVELER</small>
+                    ARSEMA
+                </div>
+
+                <div>
+                    <small>KNOWN AS</small>
+                    JO
+                </div>
+
+                <div>
+                    <small>ORIGIN</small>
+                    CLASSIFIED
+                </div>
+
+                <div>
+                    <small>DESTINATION</small>
+                    ARSU____
+                </div>
+
+                <div>
+                    <small>STATUS</small>
+                    AWAITING DISCOVERY
+                </div>
+
+            </div>
+
+
+            <div class="passport-stamp">
+                AUTHORIZED<br>
+                TO CONTINUE
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <p class="passport-message">
+        Your passport has been recovered.
+    </p>
+
+    <p class="passport-small">
+        But the destination is incomplete.
+    </p>
+
+
+    <button onclick="finishDay3()">
+        CLOSE PASSPORT
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     DAY 3 END
+===================================================== -->
+
+<section id="day3End"
+         class="hidden">
+
+    <div class="ending-paper">
+[10/2/2026 8:45 PM] ..e: <p class="archive-label">
+            ARCHIVE RECORD
+        </p>
+
+        <h2>
+            SOMEWHERE BEYOND THE MAP...
+        </h2>
+
+        <div class="ornament">
+            ❦
+        </div>
+
+        <p>
+            A place is waiting.
+        </p>
+
+        <p class="day-complete">
+            DAY III — COMPLETE
+        </p>
+
+        <p class="return-text">
+            Return when the next chapter opens.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DAY 2
+     HIDDEN FOR NOW
+===================================================== -->
+
+<section id="day2"
+         class="hidden">
+
+    <!-- We will build Day 2 here later -->
+
+</section>
+
+
+
+<!-- =====================================================
+     DAY 1
+     HIDDEN FOR NOW
+===================================================== -->
+
+<section id="day1"
+         class="hidden">
+
+    <!-- We will build Day 1 here later -->
+
+</section>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
