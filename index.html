@@ -1,514 +1,700 @@
- <!DOCTYPE html>
-<html lang="en">
+/* =====================================================
+   BASIC RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,0.5),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(70,55,35,0.1),
+            transparent 35%
+        ),
+        #e8dfca;
+    color: #29372d;
+    font-family: "Cormorant Garamond", serif;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   PAPER TEXTURE
+===================================================== */
+
+.paper-texture {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+    opacity: 0.22;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(80,60,40,0.05) 0px,
+            rgba(80,60,40,0.05) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+}
+
+
+/* =====================================================
+   FAINT MAP BACKGROUND
+===================================================== */
+
+.map-background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.08;
+    background-image:
+        linear-gradient(
+            25deg,
+            transparent 48%,
+            #52604d 49%,
+            transparent 50%
+        ),
+        linear-gradient(
+            115deg,
+            transparent 48%,
+            #52604d 49%,
+            transparent 50%
+        );
+    background-size: 220px 220px;
+    z-index: 0;
+}
+
+
+/* =====================================================
+   VINTAGE STAMPS
+===================================================== */
+
+.vintage-stamp {
+    position: fixed;
+    z-index: 2;
+    border: 2px solid #66705e;
+    padding: 8px;
+    font-family: "Special Elite", monospace;
+    font-size: 9px;
+    text-align: center;
+    color: #66705e;
+    opacity: 0.5;
+}
+
+
+.stamp-left {
+    top: 25px;
+    left: 18px;
+    transform: rotate(-12deg);
+}
+
+
+.stamp-right {
+    right: 18px;
+    bottom: 25px;
+    transform: rotate(10deg);
+}
 
-<head>
+
+/* =====================================================
+   GENERAL PAGE
+===================================================== */
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    z-index: 3;
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
 
-    <meta charset="UTF-8">
+.archive-label {
+    font-family: "Special Elite", monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #65705d;
+}
+
+
+h1 {
+    font-weight: 500;
+}
+
+
+.intro-text {
+    font-size: 21px;
+    color: #655d4d;
+    margin: 10px 0;
+}
+
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Jo's Journey</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Vintage fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Special+Elite&family=Parisienne&display=swap"
-          rel="stylesheet">
-
-</head>
-
-
-<body>
-
-
-<!-- =====================================================
-     DECORATIVE VINTAGE BACKGROUND
-===================================================== -->
-
-<div class="paper-texture"></div>
-
-<div class="map-background"></div>
-
-<div class="vintage-stamp stamp-left">
-    PERSONAL<br>
-    ARCHIVE
-</div>
-
-<div class="vintage-stamp stamp-right">
-    TRAVEL<br>
-    RECORD
-</div>
-
-
-<!-- =====================================================
-     DAY 3
-     THE DISCOVERY
-===================================================== -->
-
-<section id="day3" class="day active">
-
-    <div class="page">
-
-        <p class="archive-label">
-            PERSONAL ARCHIVE
-        </p>
-
-        <h1>
-            THE JOURNEY<br>
-            OF JO
-        </h1>
-
-        <div class="ornament">
-            ❦
-        </div>
-
-        <p class="intro-text">
-            Four memories are waiting to be found.
-        </p>
-
-        <button onclick="startDay3()">
-            OPEN THE ARCHIVE
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DAY 3 — ARCHIVE FILES
-===================================================== -->
-
-<section id="archive" class="hidden">
-
-    <div class="archive-container">
-
-        <p class="archive-label">
-            DAY III — THE DISCOVERY
-        </p>
-
-        <h2>
-            RECOVER THE FOUR PIECES
-        </h2>
-
-        <p class="archive-description">
-            Somewhere inside these memories,
-            something has been hidden.
-        </p>
-
-
-        <!-- A -->
-
-        <div class="case-file">
-
-            <p class="file-number">
-                FILE 001
-            </p>
-
-            <p class="case-letter">
-                A
-            </p>
-
-            <h3>
-                THE ORIGIN STORY
-            </h3>
-
-            <p>
-                Every friendship has a beginning.
-                This one has several.
-            </p>
-
-            <button onclick="openMemory('A')">
-                OPEN FILE
-            </button>
-
-        </div>
-
-
-        <!-- R -->
-
-        <div class="case-file">
-
-            <p class="file-number">
-                FILE 002
-            </p>
-
-            <p class="case-letter">
-                R
-            </p>
-
-            <h3>
-                THE RAINY SAMBUSA FILE
-            </h3>
-
-            <p>
-                A mission for quoqor biscuit.
-                An unexpected snack.
-                One rainy night.
-            </p>
-
-            <button onclick="openMemory('R')">
-                OPEN FILE
-            </button>
-
-        </div>
-
-
-        <!-- S -->
-
-        <div class="case-file">
-
-            <p class="file-number">
-                FILE 003
-            </p>
-
-            <p class="case-letter">
-                S
-            </p>
-
-            <h3>
-                THE MYSTERY OF JO
-            </h3>
-
-            <p>
-                Almost eight Arsemas.
-                One nickname.
-                One mystery.
-            </p>
-
-            <button onclick="openMemory('S')">
-                OPEN FILE
-            </button>
-
-        </div>
-
-
-        <!-- U -->
-
-        <div class="case-file">
-
-            <p class="file-number">
-                FILE 004
-            </p>
-
-            <p class="case-letter">
-                U
-            </p>
-
-            <h3>
-                HER WORLD
-            </h3>
-
-            <p>
-                The little things that make
-                her unmistakably Jo.
-            </p>
-
-            <button onclick="openMemory('U')">
-                OPEN FILE
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-[10/2/2026 8:45 PM] ..e: <!-- =====================================================
-     MEMORY POPUP
-===================================================== -->
-
-<div id="memoryModal" class="modal hidden">
-
-    <div class="memory-paper">
-
-        <button class="close-button"
-                onclick="closeMemory()">
-            ×
-        </button>
-
-        <p id="memoryFile"
-           class="archive-label">
-        </p>
-
-        <h2 id="memoryTitle"></h2>
-
-        <div class="ornament">
-            ❦
-        </div>
-
-        <div id="memoryContent"></div>
-
-
-        <!-- PHOTO PLACEHOLDER -->
-
-        <div id="photoPlaceholder"
-             class="photo-placeholder">
-
-            YOUR PHOTO<br>
-            WILL GO HERE
-
-        </div>
-
-
-        <button onclick="solveMemory()">
-            PIECE RECOVERED
-        </button>
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     ARSU REVEAL
-===================================================== -->
-
-<section id="arsuReveal"
-         class="hidden">
-
-    <div class="reveal-paper">
-
-        <p class="archive-label">
-            ARCHIVE COMPLETE
-        </p>
-
-        <h2>
-            FOUR PIECES RECOVERED
-        </h2>
-
-
-        <div class="letters">
-
-            <span>A</span>
-            <span>R</span>
-            <span>S</span>
-            <span>U</span>
-
-        </div>
-
-
-        <div class="ornament">
-            ❦
-        </div>
-
-
-        <p>
-            Four memories.
-        </p>
-
-        <p>
-            Four letters.
-        </p>
-
-        <p>
-            One place.
-        </p>
-
-
-        <h1 class="arsu">
-            ARSU
-        </h1>
-
-
-        <p class="mystery-text">
-            But what is ARSU?
-        </p>
-
-
-        <button onclick="openPassport()">
-            CONTINUE
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PASSPORT
-===================================================== -->
-
-<section id="passportSection"
-         class="hidden">
-
-    <div class="passport">
-
-        <!-- COVER -->
-
-        <div class="passport-cover">
-
-            <div class="passport-emblem">
-                ❦
-            </div>
-
-            <p>
-                TRAVEL DOCUMENT
-            </p>
-
-            <h1>
-                JO
-            </h1>
-
-            <div class="passport-line"></div>
-
-            <small>
-                PERSONAL ARCHIVE
-            </small>
-
-        </div>
-
-
-        <!-- INSIDE PAGE -->
-
-        <div class="passport-page">
-
-            <div class="passport-header">
-
-                <span>
-                    PERSONAL ARCHIVE
-                </span>
-
-                <span>
-                    003
-                </span>
-
-            </div>
-
-
-            <h2>
-                TRAVELER'S RECORD
-            </h2>
-
-
-            <div class="passport-info">
-
-                <div>
-                    <small>TRAVELER</small>
-                    ARSEMA
-                </div>
-
-                <div>
-                    <small>KNOWN AS</small>
-                    JO
-                </div>
-
-                <div>
-                    <small>ORIGIN</small>
-                    CLASSIFIED
-                </div>
-
-                <div>
-                    <small>DESTINATION</small>
-                    ARSU____
-                </div>
-
-                <div>
-                    <small>STATUS</small>
-                    AWAITING DISCOVERY
-                </div>
-
-            </div>
-
-
-            <div class="passport-stamp">
-                AUTHORIZED<br>
-                TO CONTINUE
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <p class="passport-message">
-        Your passport has been recovered.
-    </p>
-
-    <p class="passport-small">
-        But the destination is incomplete.
-    </p>
-
-
-    <button onclick="finishDay3()">
-        CLOSE PASSPORT
-    </button>
-
-</section>
-
-
-
-<!-- =====================================================
-     DAY 3 END
-===================================================== -->
-
-<section id="day3End"
-         class="hidden">
-
-    <div class="ending-paper">
-[10/2/2026 8:45 PM] ..e: <p class="archive-label">
-            ARCHIVE RECORD
-        </p>
-
-        <h2>
-            SOMEWHERE BEYOND THE MAP...
-        </h2>
-
-        <div class="ornament">
-            ❦
-        </div>
-
-        <p>
-            A place is waiting.
-        </p>
-
-        <p class="day-complete">
-            DAY III — COMPLETE
-        </p>
-
-        <p class="return-text">
-            Return when the next chapter opens.
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DAY 2
-     HIDDEN FOR NOW
-===================================================== -->
-
-<section id="day2"
-         class="hidden">
-
-    <!-- We will build Day 2 here later -->
-
-</section>
-
-
-
-<!-- =====================================================
-     DAY 1
-     HIDDEN FOR NOW
-===================================================== -->
-
-<section id="day1"
-         class="hidden">
-
-    <!-- We will build Day 1 here later -->
-
-</section>
-
-
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
+.ornament {
+    font-family: "Parisienne", cursive;
+    font-size: 32px;
+    color: #947c50;
+    margin: 12px;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+#day3 h1 {
+    font-size: clamp(65px, 18vw, 125px);
+    letter-spacing: 8px;
+    color: #29372d;
+    text-shadow: 2px 2px rgba(120,90,50,0.12);
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: transparent;
+    border: 1px solid #596553;
+    color: #29372d;
+    font-family: "Special Elite", monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+button:hover {
+    background: #29372d;
+    color: #eee5d1;
+}
+
+
+/* =====================================================
+   ARCHIVE
+===================================================== */
+
+#archive {
+    position: relative;
+    z-index: 3;
+    min-height: 100vh;
+    padding: 80px 20px;
+}
+
+
+.archive-container {
+    width: 100%;
+    max-width: 760px;
+    margin: auto;
+    text-align: center;
+}
+
+
+.archive-container h2 {
+    font-size: 42px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+
+.archive-description {
+    font-style: italic;
+    color: #716957;
+    margin-bottom: 45px;
+}
+
+
+/* =====================================================
+   CASE FILE
+===================================================== */
+
+.case-file {
+    position: relative;
+    background: rgba(244,237,219,0.78);
+    border: 1px solid rgba(80,65,45,0.25);
+    padding: 35px 25px;
+    margin: 35px auto;
+    max-width: 620px;
+    box-shadow: 5px 8px 18px rgba(50,40,25,0.12);
+    transition: 0.3s;
+}
+
+
+.case-file:hover {
+    transform: translateY(-4px) rotate(-0.3deg);
+}
+
+
+.case-file::before {
+    content: "";
+    position: absolute;
+    width: 95px;
+    height: 17px;
+    background: rgba(183,166,130,0.35);
+    top: -8px;
+    left: 42%;
+    transform: rotate(-2deg);
+}
+
+
+.file-number {
+    font-family: "Special Elite", monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #756b58;
+}
+
+
+.case-letter {
+    font-family: "Parisienne", cursive;
+    font-size: 55px;
+    color: #596653;
+    margin: 8px;
+}
+
+
+.case-file h3 {
+    font-size: 27px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+
+.case-file p:not(.file-number):not(.case-letter) {
+    font-size: 17px;
+    line-height: 1.5;
+    color: #625947;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(30,35,28,0.78);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.memory-paper {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 45px 25px;
+    background: #eee4ce;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+
+.memory-paper h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    border: none;
+    font-size: 28px;
+    margin: 0;
+}
+
+
+#memoryContent {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #554d40;
+}
+
+
+.photo-placeholder {
+    width: 85%;
+    max-width: 430px;
+    height: 230px;
+    margin: 25px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #d8ceb8;
+    border: 7px solid #c8baa0;
+    box-shadow: 3px 6px 12px rgba(0,0,0,0.15);
+    font-family: "Special Elite", monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #716957;
+}
+
+
+/* =====================================================
+   ARSU
+===================================================== */
+
+#arsuReveal {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    position: relative;
+    z-index: 3;
+}
+
+
+.reveal-paper {
+    width: 100%;
+    max-width: 700px;
+    padding: 60px 25px;
+    background: rgba(242,232,210,0.82);
+    border: 1px solid rgba(80,65,45,0.3);
+    text-align: center;
+    box-shadow: 8px 12px 30px rgba(50,40,25,0.15);
+}
+
+
+.reveal-paper h2 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+.letters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 35px 0;
+}
+
+
+.letters span {
+    width: 65px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee4ce;
+    border: 1px solid #a28e69;
+    font-family: "Parisienne", cursive;
+    font-size: 48px;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.12);
+}
+
+
+.arsu {
+    font-family: "Special Elite", monospace;
+    font-size: 52px;
+    letter-spacing: 9px;
+    color: #596653;
+    margin: 20px;
+}
+
+
+.mystery-text {
+    font-style: italic;
+    color: #756b5b;
+}
+
+
+/* =====================================================
+   PASSPORT
+===================================================== */
+
+#passportSection {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+
+.passport {
+    width: 100%;
+    max-width: 650px;
+    box-shadow: 10px 15px 30px rgba(40,30,20,0.3);
+}
+
+
+/* COVER */
+
+.passport-cover {
+    min-height: 360px;
+    background: #293b2d;
+    border: 8px solid #203024;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #d8c49a;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.3);
+}
+
+
+.passport-emblem {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+
+.passport-cover p {
+    font-family: "Special Elite", monospace;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+
+.passport-cover h1 {
+    font-size: 75px;
+    letter-spacing: 10px;
+    margin: 20px;
+}
+
+
+.passport-line {
+    width: 180px;
+    height: 1px;
+    background: #bda36c;
+}
+
+
+.passport-cover small {
+    font-family: "Special Elite", monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+
+/* INSIDE */
+
+.passport-page {
+    position: relative;
+    min-height: 470px;
+    padding: 30px;
+    background: #eee4ce;
+    border: 1px solid #c4b693;
+}
+
+
+.passport-header {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Special Elite", monospace;
+    font-size: 8px;
+    color: #766c59;
+}
+
+
+.passport-page h2 {
+    text-align: center;
+    font-family: "Special Elite", monospace;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin: 40px 0 30px;
+}
+
+
+.passport-info div {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(90,75,50,0.2);
+    text-align: left;
+    font-size: 20px;
+}
+
+
+.passport-info small {
+    display: block;
+    font-family: "Special Elite", monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #81755f;
+    margin-bottom: 3px;
+}
+
+
+.passport-stamp {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #66735d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Special Elite", monospace;
+    font-size: 8px;
+    color: #66735d;
+    transform: rotate(-12deg);
+    opacity: 0.7;
+}
+
+
+.passport-message {
+    font-size: 20px;
+    margin-top: 25px;
+}
+
+
+.passport-small {
+    font-size: 15px;
+    font-style: italic;
+    color: #746a59;
+}
+
+
+/* =====================================================
+   END OF DAY 3
+===================================================== */
+
+#day3End {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+
+.ending-paper {
+    max-width: 650px;
+    padding: 60px 25px;
+}
+
+
+.ending-paper h2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+
+.ending-paper > p {
+    font-size: 21px;
+    margin: 12px;
+}
+
+
+.day-complete {
+    font-family: "Special Elite", monospace;
+    font-size: 11px !important;
+    letter-spacing: 3px;
+    color: #596653;
+}
+
+
+.return-text {
+    font-style: italic;
+    color: #756b5b;
+    font-size: 17px !important;
+}
+
+
+/* =====================================================
+   HIDDEN (FIXED HERE)
+===================================================== */
+
+.hidden {
+    display: none !important;
+    pointer-events: none !important;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+    .vintage-stamp {
+        font-size: 7px;
+        padding: 5px;
+    }
+
+    .archive-container h2 {
+        font-size: 32px;
+    }
+
+    .case-file {
+        padding: 28px 18px;
+    }
+
+    .case-file h3 {
+        font-size: 23px;
+    }
+
+    .letters {
+        gap: 6px;
+    }
+
+    .letters span {
+        width: 54px;
+        height: 70px;
+        font-size: 40px;
+    }
+
+    .arsu {
+        font-size: 38px;
+        letter-spacing: 6px;
+    }
+
+    .passport-cover {
+        min-height: 320px;
+    }
+
+    .passport-page {
+        min-height: 450px;
+        padding: 23px;
+    }
+
+    .passport-stamp {
+        width: 75px;
+        height: 75px;
+        font-size: 6px;
+    }
+}
